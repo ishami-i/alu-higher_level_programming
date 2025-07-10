@@ -52,38 +52,4 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-    @property
-    def height(self):
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
-
-    def area(self):
-        return self.width * self.height
-
-    def perimeter(self):
-        if self.width == 0 or self.height == 0:
-            return 0
-        result = (self.width * 2) + (self.height * 2)
-        return result
-
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1 == rect_2:
-            return rect_1
-        area1 = rect_1.area()
-        area2 = rect_2.area()
-        if area1 > area2:
-            return area1
-        else:
-            return area2
+    @propert

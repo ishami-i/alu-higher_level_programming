@@ -1,4 +1,4 @@
-Alx tasks on input/output in python:
+Alu tasks on input/output in python:
 Write a function that reads a text file (UTF8) and prints it to stdout:
 
 Prototype: def read_file(filename=""):

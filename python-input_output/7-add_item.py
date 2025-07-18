@@ -1,10 +1,20 @@
 #!/usr/bin/python3
-"""this script takes command line argument and saves it to a file"""
-import json
-from sys import argv
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+"""adds all arguments to a Python list, and after that save them to a file:"""
 
 
-with open("add_item.json", "w") as f:
-    save_to_json_file(argv[1:], "add_item.json")
+import sys
+
+if __name__ == "__main__":
+    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+    load_from_json_file = __import__('6-load_from_json_file') \
+        .load_from_json_file
+
+    try:
+        loadFile = load_from_json_file("add_item.json")
+    except FileNotFoundError:
+        loadFile = []
+
+    argc = len(sys.argv)
+    for idx in range(1, argc):
+        loadFile.append(sys.argv[idx])
+    save_to_json_file(loadFile, "add_item.json")

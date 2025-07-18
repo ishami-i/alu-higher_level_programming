@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""A script that converts a string to JSON object"""
+''' returns object (Python data structure) represented by a JSON string:'''
+
+
 import json
 
 
-def from_json_string(my_str):
-    """Function that creates deserialises a string"""
-    return json.loads(my_str)
+def from_json_string(my_obj):
+    '''The real function that returns a json obj'''
+    return json.loads(my_obj)

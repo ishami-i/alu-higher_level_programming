@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""Fetches a URL using requests and prints body info in specific format"""
+"""Fetches https://alu-intranet.hbtn.io/status and displays the response info"""
 
 import requests
-from sys import argv
 
 if __name__ == "__main__":
-    url = argv[1]
-    response = requests.get(url)
+    response = requests.get("https://alu-intranet.hbtn.io/status")
     content = response.text
     print("Body response:")
     print("\t- type: {}".format(type(content)))

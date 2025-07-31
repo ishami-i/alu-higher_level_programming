@@ -1,3 +1,3 @@
 #!/bin/bash
-# A script that obtains the content-length of an http request
-curl -sI "$1" | grep -i "Content-Length" | cut -d " " -f2
+# A script that sends an HTTP DELETE request to the URL passed as the first argument
+curl -sX DELETE "$1"

@@ -17,8 +17,8 @@ from model_state import Base, State
 if __name__ == "__main__":
     # Check for correct number of arguments
     if len(sys.argv) != 4:
-        print("Usage: ./13-model_state_delete_a.py <mysql_username> \
-<mysql_password> <database_name>")
+        print("Usage: ./13-model_state_delete_a.py <mysql_username> "
+              "<mysql_password> <database_name>")
         sys.exit(1)
 
     # Get command-line arguments
@@ -27,11 +27,12 @@ if __name__ == "__main__":
     database = sys.argv[3]
     port = 3306
 
+    # Create the database connection string
+    db_uri = (f"mysql+mysqldb://{username}:{password}@"
+              f"localhost:{port}/{database}")
+
     # Create the SQLAlchemy engine to connect to the MySQL database
-    engine = create_engine(
-        f"mysql+mysqldb://{username}:{password}@localhost:{port}/{database}",
-        pool_pre_ping=True
-    )
+    engine = create_engine(db_uri, pool_pre_ping=True)
 
     # Create a configured "Session" class
     Session_class = sessionmaker(bind=engine)
